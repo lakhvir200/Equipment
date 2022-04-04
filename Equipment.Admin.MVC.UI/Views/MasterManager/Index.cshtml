@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Equipment.Get.Core.Helpers.Out.SubMaster>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="#">Master</a></li>
+                        <li class="breadcrumb-item active">All @Equipment.Admin.MVC.UI.Services.Utilities.GetMenuById(Convert.ToInt32(ViewBag.MasterId)).Name</li>
+                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/MasterManager/Create?q=@Equipment.Admin.MVC.UI.Services.Utilities.Encrypt(ViewBag.MasterId)">Add New @Equipment.Admin.MVC.UI.Services.Utilities.GetMenuById(Convert.ToInt32(ViewBag.MasterId)).Name</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- right column -->
+                <div class="col-md-12">
+                    <!-- general form elements disabled -->
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">All @Equipment.Admin.MVC.UI.Services.Utilities.GetMenuById(Convert.ToInt32(ViewBag.MasterId)).Name</h3>
+                        </div>
+
+                        <table class="table">
+                            <thead class="bg-gray-light">
+                                <tr>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>      
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        <a href="//Details?id=@item.ID">@Html.DisplayFor(modelItem => item.ID)</a>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        <a href="#">  <img style="height: 20px; width: 20px" src="~/edit.png" /></a>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+

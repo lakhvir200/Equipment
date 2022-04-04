@@ -1,0 +1,276 @@
+﻿@model Equipment.Get.Core.Helpers.Out.Equipments
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="#">Equipment</a></li>
+                        <li class="breadcrumb-item active">Add New Equipment</li>
+                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/equipment/AllEquipment">All Equipments</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- right column -->
+                <div class="col-md-12">
+                    <!-- general form elements disabled -->
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">Add New Equipment</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <form role="form" method="post" role="form" id="newEquipmentForm" asp-action="NewEquipment">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Hospital Name</label>
+                                            <select asp-for="UnitLookupID" name="UnitLookupID" class="form-control">
+                                                <option value="">-Select Hospital-</option>
+                                                @foreach (var item in Model.masterLookup.HospitalLookup)
+                                                {
+                                                    <option value="@item.HospitalID">@item.HospitalName</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="UnitLookupID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Bill Date</label>
+                                            <input id="date" class="form-control" type="date" asp-for="BillDate" name="BillDate">
+                                            <span asp-validation-for="BillDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Maint. Priodicity</label>
+                                            <select class="form-control" asp-for="MaintPeriodicityID" name="MaintPeriodicityID">
+                                                <option value="">-Select Priodicity-</option>
+                                                @foreach (var item in Model.masterLookup.MaintenancePeriodLookup)
+                                                {
+                                                    <option value="@item.MaintPerodicityID">@item.Periodicity</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="MaintPeriodicityID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+
+                                        <div class="form-group">
+                                            <label>Department</label>
+                                            <select class="form-control" asp-for="DepartmentID" name="DepartmentID">
+                                                <option value="">-Select Department-</option>
+                                                @foreach (var item in Model.masterLookup.DepartmentLookup)
+                                                {
+                                                    <option value="@item.DepartmentID">@item.DepartmentName</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="DepartmentID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Date of Installation</label>
+                                            <input id="date" class="form-control" type="date" asp-for="DateOfInstallation">
+                                            <span asp-validation-for="DateOfInstallation" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Budget year</label>
+                                            <select class="form-control" asp-for="BudgetYearId">
+                                                <option value="">-Select Budget year-</option>
+                                                @foreach (var item in Model.masterLookup.BudgetLookup)
+                                                {
+                                                    <option value="@item.BudgetID">@item.BudgetName</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="BudgetYearId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Equipment ID</label>
+                                            <input type="text" name="EquipmentID" class="form-control" asp-for="EquipmentID" placeholder="Enter ...">
+                                            <span asp-validation-for="EquipmentID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Price</label>
+                                            <input type="text" class="form-control" asp-for="CostOfEquipment" id="inputSuccess" placeholder="Enter ...">
+                                            <span asp-validation-for="CostOfEquipment" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Bill Detail</label>
+                                            <input type="text" class="form-control" asp-for="BillDeatils" placeholder="Enter ...">
+                                            <span asp-validation-for="BillDeatils" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Equipment Name</label>
+                                            <select class="form-control" asp-for="EquipNameID">
+                                                <option value="">-Select Equipment Name-</option>
+                                                @foreach (var item in Model.masterLookup.EquipNameLookup)
+                                                {
+                                                    <option value="@item.EquipNameID">@item.EquipmentName</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="EquipmentID" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control" asp-for="StatusID">
+                                                <option value="">-Select Status-</option>
+                                                @foreach (var item in Model.masterLookup.StatusLookup)
+                                                {
+                                                    <option value="@item.StatusID">@item.EquipmentStatus</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="StatusID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                        
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label> Sub Category</label>
+                                            <select class="form-control" asp-for="SubCategoryID">
+                                                <option value="">-Select Category-</option>
+                                                @foreach (var item in Model.masterLookup.SubCategoryLookup)
+                                                {
+                                                    <option value="@item.SubCategoryID">@item.SubCategoryName</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="SubCategoryID" class="text-danger"></span>
+                                        </div>                              
+                                       
+                                    </div>
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-sm-4">
+                                        <!-- select -->
+                                         <div class="form-group">
+                                            <label>Category</label>
+                                            <select class="form-control" asp-for="CategoryID">
+                                                <option value="">-Select Category-</option>
+                                                @foreach (var item in Model.masterLookup.CategoryLookup)
+                                                {
+                                                    <option value="@item.CategoryID">@item.CategoryName</option>
+                                                }
+                                            </select>
+                                            <span asp-validation-for="CategoryID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Supplier</label>
+                                            <select class="form-control" asp-for="SupplierID">
+                                                <option value="">-Select Supplier-</option>
+                                                @foreach (var item in Model.masterLookup.SupplierLookup)
+                                                {
+                                                    <option value="@item.SupplierID">@item.SupplierName</option>
+                                                }
+
+                                            </select>
+                                            <span asp-validation-for="SupplierID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                            <textarea class="form-control" asp-for="Specifications" name="Specifications" rows="2" placeholder="Enter Specifications..."></textarea>
+                                            <span asp-validation-for="Specifications" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <textarea class="form-control" asp-for="Remarks" name="Remarks" rows="2" placeholder="Enter Remarks..."></textarea>
+                                            <span asp-validation-for="Remarks" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @*<div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Upload Bill</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Upload Photo file</label>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary float-right">Save Equipment</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

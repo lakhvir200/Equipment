@@ -1,0 +1,20 @@
+<h1 id="tableLabel">Equipment List</h1>
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>Equipment ID</th>
+      <th>Specifications</th>
+      <th>Price</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let forecast of forecasts">
+      <td>{{ forecast.equipmentID }}</td>
+      <td>{{ forecast.specifications }}</td>
+      <td>{{ forecast.costOfEquipment | currency:"&#8377;" }}</td>
+      <td>{{ forecast.remarks }}</td>
+     </tr>
+  </tbody>
+</table>

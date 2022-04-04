@@ -1,0 +1,132 @@
+﻿@model IEnumerable<Equipment.Get.Core.Helpers.Out.RepairMaster>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="#">Repair</a></li>
+                        <li class="breadcrumb-item active">Add New Repair</li>
+                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Repair/NewRepair">Add New Repair</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+     <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- right column -->
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">All Repairs</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Repair ID
+                                        </th>
+                                        <th>
+                                            EQ ID
+                                        </th>
+                                        <th>
+                                            Spares
+                                        </th>
+
+                                        <th>
+                                            REPAIR MAINT
+                                        </th>
+
+                                        <th>
+                                            Action Taken
+                                        </th>
+                                        <th align="center">
+                                            Date
+                                        </th>
+                                        <th align="center">
+                                            Attended By
+                                        </th>
+                                        <th align="center">
+                                            Status
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>     
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            <a href="/Repair/Details?id=@item.RID">@Html.DisplayFor(modelItem => item.RID)</a>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.EQ_ID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SPARES)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.REPAIR_MAINT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ACTION_TAKEN)
+                                        </td>
+                                        <td>
+                                            @if (item.RDATE != DateTime.Parse("1/1/0001 12:00:00 AM"))
+                                            {
+                                                @Html.DisplayFor(modelItem => item.RDATE)
+                                            }
+                                            else
+                                            {
+                                                <img src="~/cloud.png" />
+                                            }
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ATT_BY)
+                                        </td>
+                                        <td>
+                                            @if (item.STATUS == true)
+                                            {
+                                                <span class="badge badge-success">Active</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-danger">Deactived</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a href="/repair/Editrepair?id=@item.RID">  <img style="height: 20px; width: 20px" src="~/edit.png" /></a>
+                                        </td>
+                                    </tr>
+                                        }
+                                    </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+</div>
+
+

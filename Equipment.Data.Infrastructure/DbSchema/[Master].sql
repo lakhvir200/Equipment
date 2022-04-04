@@ -1,0 +1,31 @@
+USE [db_a7eaea_emsdb]
+GO
+
+/****** Object:  Table [dbo].[Master]    Script Date: 2/13/2022 5:20:19 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Master](
+	[MasterID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](255) NULL,
+	[ModuleUrl] [nvarchar](max) NULL,
+	[IsActive] [bit] NULL,
+	[Position] [int] NULL,
+ CONSTRAINT [PK_Master] PRIMARY KEY CLUSTERED 
+(
+	[MasterID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

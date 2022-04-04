@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Equipment.Get.Core.Helpers.Out.Consumption>
+
+@{
+    ViewData["Title"] = "AllConsumption";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="#">Consumption</a></li>
+                        <li class="breadcrumb-item active">All Consumption</li>
+                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Add New Consumption</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- right column -->
+                <div class="col-md-12">
+                    <!-- general form elements disabled -->
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">All Consumptions</h3>
+                        </div>
+
+                        <table class="table">
+                            <thead class="bg-gray-light">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ID)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DOC_NO)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DOC_DT)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DOC_TP)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DRUG_NM)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.QTY)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TAX_RT)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TAX_AMT)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.eqid)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SUPP_NAME)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.ID)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DOC_NO)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DOC_DT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DOC_TP)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DRUG_NM)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.QTY)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TAX_RT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TAX_AMT)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.eqid)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SUPP_NAME)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+

@@ -1,0 +1,145 @@
+﻿@model IEnumerable<Equipment.Get.Core.Helpers.Out.EquipmentView>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="#">Equipment</a></li>
+                        <li class="breadcrumb-item active">All Equipments</li>
+                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/equipment/newequipment">Add New Equipment</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- right column -->
+                <div class="col-md-12">   
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">All Equipments</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Equip Code
+                                        </th>
+                                        <th>
+                                            Specifications
+                                        </th>
+
+                                        <th>
+                                            Cost
+                                        </th>
+
+                                        <th>
+                                            Remarks
+                                        </th>
+                                        <th align="center">
+                                            Purchased
+                                        </th>
+                                        <th align="center">
+                                            Updated
+                                        </th>
+                                        <th align="center">
+                                            Active
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a href="/equipment/Details?id=@item.EquipmentID">@Html.DisplayFor(modelItem => item.EquipmentID)</a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EquipmentCode)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Specifications)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.CostOfEquipment)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Remarks)
+                                            </td>
+                                            <td>
+                                                @if (item.DateOfPurchase != DateTime.Parse("1/1/0001 12:00:00 AM"))
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.DateOfPurchase)
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/cloud.png" />
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.UpdatedDate != DateTime.Parse("1/1/0001 12:00:00 AM"))
+                                                {
+                                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/cloud.png" />
+                                                }
+
+                                            </td>
+                                            <td>
+                                                @if (item.IsActive == true)
+                                                {
+                                                    <span class="badge badge-success">Active</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-danger">Deactived</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a href="/equipment/EditEquipment?id=@item.EquipmentID">  <img style="height: 25px; width: 25px" src="~/edit.png" /></a>
+                                                <a href="/equipment/CloneEquipment?id=@item.EquipmentID">  <img style="height: 25px; width: 25px" src="~/clone.png" /></a>
+                                            </td>
+                                              
+
+                                        </tr>
+                                    }
+                                </tbody>                               
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+
+
+

@@ -1,0 +1,153 @@
+﻿@model Equipment.Get.Core.Helpers.Out.RepairView
+@{
+    ViewData["Title"] = "Equipment Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Repair Details</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Equipment Repair</a></li>
+                        <li class="breadcrumb-item active">Repair Details</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+
+                    <!-- Profile Image -->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img class="profile-user-img img-fluid img-circle"
+                                     src="~/equipment.png"
+                                     alt="User profile picture">
+                            </div>
+                            <h3 class="profile-username text-center">@Model.RNO</h3>
+                            <p class="text-muted text-center">@Model.ACTION_TAKEN</p>                            
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- About Me Box -->
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">About @Model.REPAIR_MAINT</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <strong><i class="fas fa-book mr-1"></i> Repair Date</strong>
+
+                            <p class="text-muted">
+                                @Model.RDATE
+                            </p>
+                            <hr>
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Spares</strong>
+                            <p class="text-muted">@Model.SPARES</p>
+                            <hr>
+                            <strong><i class="fas fa-pencil-alt mr-1"></i> ATT_BY</strong>
+                            <p class="text-muted">
+                                @Model.ATT_BY
+                            </p>
+                            <hr>
+                            <strong><i class="far fa-file-alt mr-1"></i> Department</strong>
+                            <p class="text-muted">@Model.DEPT</p>
+                            <hr>
+                            <strong><i class="far fa-file-alt mr-1"></i> Status</strong>
+                            <p class="text-muted">@Model.STATUS</p>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Other Details</a></li>
+                            </ul>
+                        </div><!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <!-- /.tab-pane -->
+                                <div class="active tab-pane" id="timeline">
+                                    <!-- The timeline -->
+                                    <div class="timeline timeline-inverse">
+                                        <!-- timeline time label -->
+                                        <div class="time-label">
+                                            <span class="bg-danger">
+                                                Details
+                                            </span>
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->                                       
+                                        <!-- END timeline item -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            <i class="fas fa-user bg-info"></i>
+
+                                            <div class="timeline-item">
+                                                <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
+
+                                                <h3 class="timeline-header border-0">
+                                                    All Documents
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <!-- END timeline item -->
+                                        <!-- timeline item -->
+                                       
+                                        <!-- END timeline item -->
+                                        <!-- timeline time label -->
+                                        <div class="time-label">
+                                            <span class="bg-success">
+                                                Equipment Images
+                                            </span>
+                                        </div>
+                                        <!-- /.timeline-label -->
+                                        <!-- timeline item -->
+                                        <div>
+                                            <i class="fas fa-camera bg-purple"></i>
+
+                                            <div class="timeline-item">
+                                                <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
+
+                                                <h3 class="timeline-header">uploaded Images</h3>
+
+                                                <div class="timeline-body">
+                                                    <img src="~/equipment.png" height="100" width="100" alt="...">                                                 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- END timeline item -->
+                                        <div>
+                                            <i class="far fa-clock bg-gray"></i>
+                                        </div>
+                                    </div>
+                                </div>                                <!-- /.tab-pane -->
+                                <!-- /.tab-pane -->
+                            </div>
+                            <!-- /.tab-content -->
+                        </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>

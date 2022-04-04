@@ -1,0 +1,135 @@
+﻿@model Equipment.Get.Core.Helpers.Out.RepairMaster
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-left">
+                        <li class="breadcrumb-item"><a href="#">Equipment Repair</a></li>
+                        <li class="breadcrumb-item active">Edit Repair</li>
+                    </ol>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/Repair/index">All Repairs</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- right column -->
+                <div class="col-md-12">
+                    <!-- general form elements disabled -->
+                    <div class="card card-dark">
+                        <div class="card-header">
+                            <h3 class="card-title">Edit Repair</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <form role="form" method="post" id="newEquipmentForm" asp-action="EditRepair">
+                                <input type="hidden" asp-for="RID" name="RID" />
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Equipment</label>
+                                            <input id="EQ_ID" class="form-control" type="text" asp-for="EQ_ID" name="EQ_ID">
+                                            <span asp-validation-for="EQ_ID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>Repair Date</label>
+                                            <input id="date" class="form-control" type="date" value="@Model.RDateEdit" asp-for="RDATE" name="RDATE">
+                                            <span asp-validation-for="RDATE" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>REPAIR_MAINT</label>
+                                            <input type="text" name="REPAIR_MAINT" class="form-control" asp-for="REPAIR_MAINT" placeholder="Enter ...">
+                                            <span asp-validation-for="REPAIR_MAINT" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>RNO</label>
+                                            <input type="text" name="RNO" class="form-control" asp-for="RNO" placeholder="Enter ...">
+                                            <span asp-validation-for="RNO" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- select -->
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>ATT_BY</label>
+                                            <input type="text" class="form-control" asp-for="ATT_BY" placeholder="Enter ...">
+                                            <span asp-validation-for="ATT_BY" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <!-- select -->
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>DEPT</label>
+                                            <input type="text" class="form-control" asp-for="DEPT" placeholder="Enter ...">
+                                            <span asp-validation-for="DEPT" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <!-- select -->
+                                        <div class="form-group">
+                                            <label>SPARES</label>
+                                            <textarea class="form-control" asp-for="SPARES" name="SPARES" rows="3" placeholder="Enter Spares..."></textarea>
+                                            <span asp-validation-for="SPARES" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>ACTION_TAKEN</label>
+                                            <textarea class="form-control" asp-for="ACTION_TAKEN" name="ACTION_TAKEN" rows="3" placeholder="Enter Action Taken..."></textarea>
+                                            <span asp-validation-for="ACTION_TAKEN" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary float-right">Save Repair</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!--/.col (right) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
